@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title>Class Halloween Party</title>
+        <style>
+         body{
+                background-color: rgb(24, 24, 23);
+                font-family:cursive;
+                color:rgb(94, 32, 136);
+            }
+            form{
+                background: rgb(201, 107, 0);
+                padding:25px;
+                border-radius:15px;
+                max-width: 600px;
+                margin:auto;
+                box-shadow: 0 4px 12px rgba(255, 123, 0, 0.514);
+            }
+            h1{
+                font-family:cursive;
+                margin:30px;
+                text-align:center;
+            }
+            p{
+                text-align:center;
+            }
+            fieldset{
+                border:2px solid rgb(94, 32, 136);
+                padding:20px;
+                margin-bottom:30px;
+                border-radius:10px;
+                background:rgba(245, 245, 245, 0.452)
+            }
+            legend{
+                font-weight:bold;
+                text-transform:capitalize;
+                font-size:22px;
+                margin-top:10px;
+            }
+            label{
+                font-weight: bold;
+            }
+            input{
+                border:2px solid rgb(44, 104, 36);
+                box-shadow:2px 2px 2px rgb(94, 32, 136);
+            }
+            select{
+                border:2px solid rgb(44, 104, 36);
+                box-shadow:2px 2px 2px rgb(94, 32, 136);
+                color:rgb(94, 32, 136);
+            }
+            button{
+                width:100%;
+                padding:8px;
+                border-radius:5px;
+                margin-top:5px;
+                border:1px solid rgb(44, 104, 36);
+                color:rgb(94, 32, 136)
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+        <h1>Class Disney Halloween Costume Party</h1>
+        <p>Be whatever what you dream of!</p>
+        <fieldset>
+        <legend class="legend">Guest Info</legend>
+        <label for="name">Name</label>
+        <input type="name" name="name" class="name" id="name" required>
+        <br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" name="phone" class="phone" id="phonenumber" required>
+        </fieldset>
+        <fieldset>
+            <legend class="legend">Costume Details</legend>
+        <label for="movie">Approved Movie:</label>
+         <select name="movie" class="movie" id="movie" required>
+                <option value="">select movie</option>
+                <option value="The Little Mermaid">The Little Mermaid</option>
+                <option value="Peter Pan">Peter Pan</option>
+                <option value="Alice in Wonderland">Alice in Wonderland</option>
+                <option value="Star Wars">Star Wars</option>
+                <option value="Snow White">Snow White</option>
+                <option value="Inside Out">Inside Out</option>
+                <option value="Cars">Cars</option>
+                <option value="Cinderella">Cinderella</option>
+                <option value="Spiderman">Spiderman</option>
+                <option value="Wish">Wish</option>
+                <option value="Hulk">Hulk</option>
+                <option value="Captain America">Captain America</option>
+                <option value="Tangled">Tangled</option>
+                <option value="Zombies">Zombies</option>
+                <option value="Descendants">Descendants</option>
+                <option value="Mickey Mouse">Mickey Mouse</option>
+                <option value="Toy Story">Toy Story</option>
+            </select>
+            <br><br>
+            <label for="character ">Character Type:</label>
+            <br><br>
+            <input type="radio" name="char" class="char" value="main character">Main Character
+            <br>
+            <input type="radio" name="char" class="char" value="side character">Side Character
+            <br>
+            <input type="radio" name="char" class="char" value="inanimate object">Inanimate Object
+            <br><br>
+            <label for="accessories">Accessories:</label>
+            <br><br>
+            <div class="accessories">
+            <input type="checkbox" name="accessories" value="a prop">Prop
+            <br>
+            <input type="checkbox" name="accessories" value="a hat">Hat
+            <br>
+            <input type="checkbox" name="accessories" value="shoes">Shoes
+            <br>
+            <input type="checkbox" name="accessories" value="other accessories not listed">Other
+            </div>
+            <br><br>
+            <div class="button">
+                    <button type="submit" onclick="makereciept()">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </fieldset>
+            </form>
+            <script>
+                function makereciept(){
+                    const name=document.getElementById('name').value;
+                    const phonenumber=document.getElementById('phonenumber').value;
+                    const movie=document.getElementById('movie').value;
+                    const char=document.querySelector('input[name="char"]:checked').value;
+                    const accessories=document.querySelectorAll('.accessories input:checked')
+                    const accessorieslist=Array.from(accessories).map(el => el.value).join(', and ')||"no accessories";
+                    alert(`Hi ${name}! Your costume is the ${char} from the movie ${movie} and you will be wearing it with ${accessorieslist}. \n Excited to see you there!`)
+                }
+            </script>
+    </body>
+</html>
